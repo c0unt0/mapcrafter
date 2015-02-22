@@ -475,8 +475,8 @@ void TileRenderer::renderTile(const TilePos& tile_pos, const TilePos& tile_offse
 			// and if the chunk wasn't replaced in the cache (i.e. position changed)
 			if (state.chunk == nullptr || state.chunk->getPos() != current_chunk)
 				// get chunk if not
-				//if (!state.world->hasChunkSection(current_chunk, block.current.y))
-				//	continue;
+				if (!state.world->hasChunkSection(current_chunk, block.current.y))
+					continue;
 				state.chunk = state.world->getChunk(current_chunk);
 			if (state.chunk == nullptr) {
 				// here is nothing (= air),
